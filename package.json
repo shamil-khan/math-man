@@ -16,6 +16,11 @@
     "@fontsource/roboto": "^5.2.5",
     "@mui/icons-material": "^7.0.2",
     "@mui/material": "^7.0.2",
+    "@toolpad/core": "^0.14.0",
+    "@types/invariant": "^2.2.37",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "invariant": "^2.2.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
