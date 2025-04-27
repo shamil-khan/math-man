@@ -14,6 +14,13 @@ body {
   justify-content: center;
 }
 
+.app-background {
+  background-image: url('./images/math-bg-2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
 .content h1 {
   font-size: 3.6rem;
   font-weight: 700;
