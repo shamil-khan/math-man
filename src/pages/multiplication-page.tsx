@@ -128,7 +128,9 @@ export default function MultiplicationPage() {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
           />
-
+          <Button variant="outlined" onClick={() => setNextProblem(true)}>
+            Reset
+          </Button>
           <Countdown
             key={countdownState}
             ref={setCountdownRef}
