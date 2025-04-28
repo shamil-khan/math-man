@@ -15,9 +15,10 @@ import CubicRootIcon from '@mui/icons-material/Looks3Rounded';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { AppProvider, Branding, type Navigation } from '@toolpad/core/AppProvider';
-import { DashboardLayout } from '@toolpad/core/DashboardLayout';
-import { useDemoRouter } from '@toolpad/core/internal';
+import { Branding, type Navigation } from '@toolpad/core/AppProvider';
+import { useDemoRouter } from '@toolpad/core/internal'
+import { ReactRouterAppProvider } from '@toolpad/core/react-router';
+import { Outlet } from 'react-router';
 import MathManIcon from "./images/math-man-icon.png";
 
 const NAVIGATION: Navigation = [
@@ -26,7 +27,7 @@ const NAVIGATION: Navigation = [
     title: 'Main items',
   },
   {
-    segment: 'home',
+    segment: '',
     title: 'Home',
     icon: <HomeIcon />,
   },
@@ -147,15 +148,12 @@ export default function DashboardLayoutBasic() {
   };
 
   return (
-    <AppProvider
+    <ReactRouterAppProvider
       navigation={NAVIGATION}
-      router={router}
       theme={demoTheme}
       branding={branding}
     >
-      <DashboardLayout>
-        <DemoPageContent pathname={router.pathname} />
-      </DashboardLayout>
-    </AppProvider>
+      <Outlet />
+    </ReactRouterAppProvider>
   );
 }
