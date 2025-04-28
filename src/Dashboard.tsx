@@ -15,9 +15,10 @@ import CubicRootIcon from '@mui/icons-material/Looks3Rounded';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { AppProvider, type Navigation } from '@toolpad/core/AppProvider';
+import { AppProvider, Branding, type Navigation } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
+import MathManIcon from "./images/math-man-icon.png";
 
 const NAVIGATION: Navigation = [
   {
@@ -30,7 +31,7 @@ const NAVIGATION: Navigation = [
     icon: <HomeIcon />,
   },
   {
-    segment: 'addition',
+    segment: 'addition-page',
     title: 'Addition',
     icon: <AdditionIcon />,
   },
@@ -140,12 +141,17 @@ function DemoPageContent({ pathname }: { pathname: string }) {
 export default function DashboardLayoutBasic() {
   
   const router = useDemoRouter('/dashboard');
+  const branding: Branding = {
+    title: 'Math Man',
+    logo: <img src={MathManIcon} alt="Math Man" />,
+  };
 
   return (
     <AppProvider
       navigation={NAVIGATION}
       router={router}
       theme={demoTheme}
+      branding={branding}
     >
       <DashboardLayout>
         <DemoPageContent pathname={router.pathname} />

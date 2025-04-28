@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material/styles';
 import App from './App';
+import Dashboard from './Dashboard';
 
 const rootEl = document.getElementById('root');
 if (rootEl) {
@@ -9,7 +10,7 @@ if (rootEl) {
   root.render(
     <React.StrictMode>
       <StyledEngineProvider injectFirst>
-        <App />
+        <Dashboard />
       </StyledEngineProvider>
     </React.StrictMode>,
   );
