@@ -16,10 +16,10 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Branding, type Navigation } from '@toolpad/core/AppProvider';
-import { useDemoRouter } from '@toolpad/core/internal'
+import { useDemoRouter } from '@toolpad/core/internal';
 import { ReactRouterAppProvider } from '@toolpad/core/react-router';
 import { Outlet } from 'react-router';
-import MathManIcon from "./images/math-man-icon.png";
+import MathManIcon from './images/math-man-icon.png';
 
 const NAVIGATION: Navigation = [
   {
@@ -140,7 +140,6 @@ function DemoPageContent({ pathname }: { pathname: string }) {
 }
 
 export default function DashboardLayoutBasic() {
-  
   const router = useDemoRouter('/dashboard');
   const branding: Branding = {
     title: 'Math Man',

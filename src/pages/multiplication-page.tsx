@@ -43,16 +43,16 @@ export default function MultiplicationPage() {
         </Stack>
       </Box>
       <Box sx={{ p: 2 }}>
-      <Stack direction="row" spacing={5} sx={{ alignItems: 'center' }}>
-        <TextField
-          required
-          id="outlined-required"
-          label="Answer"
-          defaultValue=""
-        />
+        <Stack direction="row" spacing={5} sx={{ alignItems: 'center' }}>
+          <TextField
+            required
+            id="outlined-required"
+            label="Answer"
+            defaultValue=""
+          />
 
-    <Button variant="outlined">Next</Button>
-    </Stack>
+          <Button variant="outlined">Next</Button>
+        </Stack>
       </Box>
     </Card>
   );

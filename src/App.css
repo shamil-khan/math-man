@@ -21,10 +21,10 @@
   height: 100vh;
 }
 
-.math-man{
-  background-image: url("./images/math-man-icon.png");
+.math-man {
+  background-image: url('./images/math-man-icon.png');
   margin-left: “auto”;
-   margin-right: “auto”;
+  margin-right: “auto”;
 }
 .content h1 {
   font-size: 3.6rem;
