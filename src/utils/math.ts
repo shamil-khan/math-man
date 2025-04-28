@@ -1,5 +1,9 @@
+import random from 'random';
+
 function getRandomValue(min: number, max: number) {
-  return Math.random() * (max - min) + min;
+  const value = random.uniformInt(min, max)();
+  console.log(`value: ${value}`);
+  return value;
 }
 
 export default getRandomValue;
