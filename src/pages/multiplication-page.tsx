@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
-import Button  from '@mui/material/Button'; 
+import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import MultiplicationIcon from '@mui/icons-material/Clear';
 import Countdown, { CountdownApi } from 'react-countdown';
@@ -16,8 +16,8 @@ export default function MultiplicationPage() {
   };
 
   const getTimerSeconds = () => {
-    return Date.now() + (5*1000);
-  } 
+    return Date.now() + 5 * 1000;
+  };
 
   const inputRef = useRef(null);
   let countdownApi: CountdownApi | null = null;
@@ -34,14 +34,16 @@ export default function MultiplicationPage() {
 
   const setNextProblem = (resetGame: boolean) => {
     const value: number = value1 * value2;
-    setScore( resetGame ? 0 :(value.toString() === answer ? score + 10 : score - 5));
-    setProblemCount(resetGame ? 1 : problemCount+1)
+    setScore(
+      resetGame ? 0 : value.toString() === answer ? score + 10 : score - 5,
+    );
+    setProblemCount(resetGame ? 1 : problemCount + 1);
     setValue1(getNextNumber());
     setValue2(getNextNumber());
     setAnswer('');
     setCountdownState(getTimerSeconds());
     countdownApi?.start();
-  }
+  };
 
   const handleKeyDown = (event) => {
     if (event.key !== 'Enter') {
@@ -55,14 +57,18 @@ export default function MultiplicationPage() {
     if (countdown) {
       countdownApi = countdown.getApi();
     }
-  }
+  };
 
   const handleInputChange = (event) => {
     setAnswer(event.target.value);
   };
 
   const countDownRenderer = ({ hours, minutes, seconds, completed }) => {
-      return <Typography gutterBottom variant="h3" component="div" color="error">{seconds}</Typography>;
+    return (
+      <Typography gutterBottom variant="h3" component="div" color="error">
+        {seconds}
+      </Typography>
+    );
   };
   return (
     <Card variant="outlined">
@@ -74,10 +80,20 @@ export default function MultiplicationPage() {
           <Typography gutterBottom variant="h3" component="div">
             Multiplication Game
           </Typography>
-          <Typography gutterBottom variant="h3" component="div" color= 'text.secondary'>
+          <Typography
+            gutterBottom
+            variant="h3"
+            component="div"
+            color="text.secondary"
+          >
             Problem: {problemCount}
           </Typography>
-          <Typography gutterBottom variant="h3" component="div"  color='secondary'>
+          <Typography
+            gutterBottom
+            variant="h3"
+            component="div"
+            color="secondary"
+          >
             Score: {score}
           </Typography>
         </Stack>
@@ -98,7 +114,11 @@ export default function MultiplicationPage() {
         </Stack>
       </Box>
       <Box sx={{ p: 2 }}>
-        <Stack direction="row" spacing={5} sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
+        <Stack
+          direction="row"
+          spacing={5}
+          sx={{ alignItems: 'center', justifyContent: 'space-between' }}
+        >
           <TextField
             required
             id="outlined-required"
@@ -108,18 +128,16 @@ export default function MultiplicationPage() {
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
           />
-          
-                <Countdown 
-        key={countdownState}
-        ref={setCountdownRef}
-        date={countdownState}
-        onComplete={setNextProblem}
-        renderer={countDownRenderer}
-      />
 
+          <Countdown
+            key={countdownState}
+            ref={setCountdownRef}
+            date={countdownState}
+            onComplete={setNextProblem}
+            renderer={countDownRenderer}
+          />
         </Stack>
       </Box>
     </Card>
   );
 }
-
