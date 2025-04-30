@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
-
+import { Provider } from 'inversify-react';
+import container from './DIRegistration';
 import App from './App';
 import Layout from './DashboardLayout';
 import DashboardPage from './pages/dashboard-page';
@@ -73,8 +74,10 @@ const rootEl = document.getElementById('root');
 if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
   root.render(
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>,
+    <Provider container={container}>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </Provider>,
   );
 }

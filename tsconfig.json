@@ -7,6 +7,10 @@
     "skipLibCheck": true,
     "useDefineForClassFields": true,
 
+    // inversify
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
     /* modules */
     "module": "ESNext",
     "isolatedModules": true,
