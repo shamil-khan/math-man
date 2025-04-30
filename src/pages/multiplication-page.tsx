@@ -16,7 +16,7 @@ export default function MultiplicationPage() {
   };
 
   const getTimerSeconds = () => {
-    return Date.now() + 5 * 1000;
+    return Date.now() + 8 * 1000;
   };
 
   const inputRef = useRef(null);
@@ -43,6 +43,7 @@ export default function MultiplicationPage() {
     setAnswer('');
     setCountdownState(getTimerSeconds());
     countdownApi?.start();
+    inputRef.current.focus();
   };
 
   const handleKeyDown = (event) => {
