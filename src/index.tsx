@@ -75,9 +75,9 @@ if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
   root.render(
     <Provider container={container}>
-      <React.StrictMode>
+      {/* <React.StrictMode> */}
         <RouterProvider router={router} />
-      </React.StrictMode>
+      {/* </React.StrictMode> */}
     </Provider>,
   );
 }
