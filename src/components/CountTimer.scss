@@ -1,0 +1,60 @@
+@use 'sass:list';
+
+$size: 4em;
+$ringColor: cornflowerblue crimson;
+$countTimerName: 'count-timer';
+
+@property --startTime {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
+/* won't be needed once Chrome supports round() */
+@property --seconds {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: true;
+}
+
+.count-timer {
+  display: grid;
+  margin: 1em auto;
+  width: $size;
+  height: $size;
+
+  &::after {
+    grid-column: 1;
+    grid-row: 1;
+    place-self: center;
+    font:
+      #{0.4 * $size}/ 2 ubuntu mono,
+      consolas,
+      monaco,
+      monospace;
+    counter-reset: counterText var(--seconds);
+    content: '' counter(counterText, decimal-leading-zero);
+  }
+}
+
+svg {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+[r] {
+  fill: none;
+  stroke: silver;
+
+  + [r] {
+    --colorDiff: calc(var(--seconds) / var(--startTime));
+    transform: rotate(-90deg);
+    stroke-linecap: round;
+    stroke: color-mix(
+      in hsl shorter hue,
+      #{list.nth($ringColor, 1)} calc(var(--colorDiff) * 100%),
+      #{list.nth($ringColor, 2)}
+    );
+    stroke-dasharray: var(--colorDiff) 1;
+  }
+}

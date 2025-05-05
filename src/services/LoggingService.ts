@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // src/services/loggingService.ts
-import { Logger, ILogObj } from "tslog";
+import { Logger, ILogObj } from 'tslog';
 
 class LoggingService {
   private logger: Logger<ILogObj>;
 
   constructor() {
     this.logger = new Logger({
-      name: "math-man",
-      type: "pretty",
+      name: 'math-man',
+      type: 'pretty',
       hideLogPositionForProduction: true,
     });
   }
