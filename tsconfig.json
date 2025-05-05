@@ -7,6 +7,8 @@
     "skipLibCheck": true,
     "useDefineForClassFields": true,
 
+    // "plugins": [{ "name": "typescript-plugin-css-modules" }],
+
     // inversify
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

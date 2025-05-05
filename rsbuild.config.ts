@@ -1,4 +1,5 @@
 import { defineConfig } from '@rsbuild/core';
+import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginReact } from '@rsbuild/plugin-react';
 
 export default defineConfig({
@@ -6,5 +7,5 @@ export default defineConfig({
     title: 'Math Man',
     favicon: './src/images/math-man-icon.png',
   },
-  plugins: [pluginReact()],
+  plugins: [pluginSass(), pluginReact()],
 });
