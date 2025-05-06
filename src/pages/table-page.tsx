@@ -1,9 +1,6 @@
-import Typography from '@mui/material/Typography';
+import MultiplicationIcon from '@mui/icons-material/Clear';
+import MathGameScreen from '../components/MathGameScreen';
 
 export default function TablePage() {
-  return (
-    <Typography variant="h6" color="grey.800">
-      This is table page!
-    </Typography>
-  );
+  return <MathGameScreen icon={MultiplicationIcon} />;
 }

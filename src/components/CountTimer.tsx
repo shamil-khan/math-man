@@ -5,7 +5,7 @@ import logger from '../services/LoggingService';
 interface CountTimerProps {
   on: boolean;
   start: number;
-  onTick: (time: number) => void;
+  onTick?: (time: number) => void | undefined;
   onCompleted: () => React.ReactNode;
 }
 interface CountTimerState {
@@ -19,6 +19,7 @@ class CountTimer extends React.Component<CountTimerProps, CountTimerState> {
   private ref: React.RefObject<HTMLDivElement | null>;
 
   constructor(props: CountTimerProps) {
+    logger.info('init count timer');
     super(props);
 
     this.state = {
@@ -56,36 +57,42 @@ class CountTimer extends React.Component<CountTimerProps, CountTimerState> {
         this.props.onCompleted();
       }
     }, 1000);
+    logger.debug('start timer-id', this.timerId);
   };
 
   public stop = () => {
     clearInterval(this.timerId);
     this.setState({ on: false });
+    logger.debug('stop', this.timerId);
   };
 
   public reset = () => {
-    logger.info('reset', this.state);
     if (this.state.on === true) {
       return;
     }
+    logger.debug('reset', this.timerId);
+
     this.setState({
       time: this.state.start,
     });
     this.setCSSTime(this.state.start);
   };
 
-  private setCSSTime = (time: number) => {
+  public getCountPassed = (): number => {
+    return this.state.start - this.state.time + 1;
+  };
 
+  private setCSSTime = (time: number) => {
     this.ref.current?.style.setProperty('--seconds', time.toString());
   };
 
   render(): React.ReactNode {
     const { onTick } = this.props;
     const { time } = this.state;
-
+    logger.debug('timer-id tick', this.timerId, time);
     this.setCSSTime(time);
 
-    if (onTick) {
+    if (this.state.on && onTick) {
       onTick(time);
     }
 

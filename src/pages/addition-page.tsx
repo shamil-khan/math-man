@@ -1,9 +1,14 @@
-import Typography from '@mui/material/Typography';
+import { MathOperation } from '../models/math-model';
+import AdditionIcon from '@mui/icons-material/Add';
+import MathGameScreen from '../components/MathGameScreen';
 
 export default function AdditionPage() {
   return (
-    <Typography variant="h6" color="grey.800">
-      This is addition page!
-    </Typography>
+    <MathGameScreen
+      minValue={11}
+      maxValue={20}
+      operation={MathOperation.Addition}
+      icon={AdditionIcon}
+    />
   );
 }

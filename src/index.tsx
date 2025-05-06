@@ -76,7 +76,7 @@ if (rootEl) {
   root.render(
     <Provider container={container}>
       {/* <React.StrictMode> */}
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
       {/* </React.StrictMode> */}
     </Provider>,
   );
