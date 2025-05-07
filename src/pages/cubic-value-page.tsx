@@ -7,7 +7,9 @@ export default function CubicValuePage() {
       minValue={2}
       maxValue={5}
       operation={MathOperation.CubicValue}
-      suffix={<span style={{ verticalAlign: 'super', fontSize: '0.5em' }}>3</span>}
+      suffix={
+        <span style={{ verticalAlign: 'super', fontSize: '0.5em' }}>3</span>
+      }
     />
   );
 }

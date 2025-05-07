@@ -10,7 +10,8 @@ export default function CubicRootPage() {
       operation={MathOperation.CubicRoot}
       prefix={
         <span style={{ width: 60, height: 120 }}>
-          <sup>3</sup><SquareRootIcon />
+          <sup>3</sup>
+          <SquareRootIcon />
         </span>
       }
     />

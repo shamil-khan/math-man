@@ -190,16 +190,22 @@ class MathGameScreen extends React.Component<
             spacing={5}
             sx={{ alignItems: 'center', justifyContent: 'space-between' }}
           >
-            <Typography variant="h3">=</Typography>
-            <TextField
-              required
-              id="outlined-required"
-              label="Answer"
-              value={mathProblem?.answer}
-              inputRef={this.answerTextRef}
-              onKeyDown={this.handleAnswerKeyDown}
-              onChange={this.handleAnswerChanged}
-            />
+            <Stack
+              direction="row"
+              spacing={1}
+              sx={{ alignItems: 'center', justifyContent: 'space-between' }}
+            >
+              <Typography variant="h3">=</Typography>
+              <TextField
+                required
+                id="outlined-required"
+                label="Answer"
+                value={mathProblem?.answer}
+                inputRef={this.answerTextRef}
+                onKeyDown={this.handleAnswerKeyDown}
+                onChange={this.handleAnswerChanged}
+              />
+            </Stack>
             <Button
               variant="outlined"
               onClick={() => this.setState({ started: false })}
