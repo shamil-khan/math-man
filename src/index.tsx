@@ -5,7 +5,7 @@ import { Provider } from 'inversify-react';
 import container from './DIRegistration';
 import App from './App';
 import Layout from './DashboardLayout';
-import DashboardPage from './pages/dashboard-page';
+import HomePage from './pages/_home-page';
 import AdditionPage from './pages/addition-page';
 import SubtractionPage from './pages/subtraction-page';
 import MultiplicationPage from './pages/multiplication-page';
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: '',
-            Component: DashboardPage,
+            Component: HomePage,
           },
           {
             path: 'addition-page',
