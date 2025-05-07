@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react';
+import React from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
@@ -6,7 +6,6 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
 import {
   MathProblem,
@@ -131,6 +130,18 @@ class MathGameScreen1 extends React.Component<
     this.setNextProblem();
   };
 
+  private gameEnd = () => {
+    this.setState({
+      started: false,
+      gameScreen: {
+        score: 0,
+        problemCount: 0,
+      },
+      mathProblem: MathProblemFactory.Default,
+      problems: [],
+    });
+  };
+
   render(): React.ReactNode {
     const { started, gameScreen, mathProblem } = this.state;
     const { prefix, suffix } = this.props;
@@ -201,10 +212,7 @@ class MathGameScreen1 extends React.Component<
               onKeyDown={this.handleAnswerKeyDown}
               onChange={this.handleAnswerChanged}
             />
-            <Button
-              variant="outlined"
-              onClick={() => this.setState({ started: false })}
-            >
+            <Button variant="outlined" onClick={this.gameEnd}>
               End
             </Button>
             <CountTimer
