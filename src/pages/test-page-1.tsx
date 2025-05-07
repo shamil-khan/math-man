@@ -6,7 +6,6 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import MultiplicationIcon from '@mui/icons-material/Clear';
 import Countdown, { CountdownApi } from 'react-countdown';
 import {
   MathProblem,
@@ -227,7 +226,7 @@ export default function TestPage1() {
           <Typography gutterBottom variant="h4">
             {mathProblem?.number1}
           </Typography>
-          <MultiplicationIcon sx={{ alignItems: 'center' }} />
+          <span>×</span>
           <Typography gutterBottom variant="h4">
             {mathProblem?.number2}
           </Typography>

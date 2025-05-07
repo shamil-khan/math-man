@@ -1,9 +1,14 @@
-import Typography from '@mui/material/Typography';
+import { MathOperation } from '../models/math-model';
+import MathGameScreen1 from '../components/MathGameScreen1';
+import SquareRootIcon from '../IconComponents/SquareRootIcon';
 
 export default function SquareRootPage() {
   return (
-    <Typography variant="h6" color="grey.800">
-      This is square root page!
-    </Typography>
+    <MathGameScreen1
+      minValue={2}
+      maxValue={9}
+      operation={MathOperation.SquareValue}
+      prefix={<SquareRootIcon />}
+    />
   );
 }

@@ -6,7 +6,6 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import AdditionIcon from '@mui/icons-material/Add';
 import {
   MathProblem,
   MathOperation,
@@ -21,7 +20,7 @@ interface GameScreen {
   problemCount: number;
 }
 
-export default function AdditionPage() {
+export default function TestPage2() {
   const [started, setStarted] = useState(false);
   const countTimerRef = useRef<CountTimer | null>(null);
   const answerTextRef = useRef<HTMLInputElement | null>(null);
@@ -139,7 +138,7 @@ export default function AdditionPage() {
           <Typography gutterBottom variant="h4">
             {mathProblem.number1}
           </Typography>
-          <AdditionIcon sx={{ alignItems: 'center' }} />
+          <span>+</span>
           <Typography gutterBottom variant="h4">
             {mathProblem.number2}
           </Typography>

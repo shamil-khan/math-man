@@ -5,7 +5,7 @@ import { pluginReact } from '@rsbuild/plugin-react';
 export default defineConfig({
   html: {
     title: 'Math Man',
-    favicon: './src/images/math-man-icon.png',
+    favicon: './src/assets/images/math-man-icon.png',
   },
   plugins: [pluginSass(), pluginReact()],
 });

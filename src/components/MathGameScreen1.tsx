@@ -21,7 +21,8 @@ interface MathGameScreenProps {
   minValue: number;
   maxValue: number;
   operation: MathOperation;
-  icon: ComponentType<SvgIconProps>;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
 interface GameScreen {
@@ -132,7 +133,7 @@ class MathGameScreen1 extends React.Component<
 
   render(): React.ReactNode {
     const { started, gameScreen, mathProblem } = this.state;
-    const { icon: Icon } = this.props;
+    const { prefix, suffix } = this.props;
     return !started ? (
       <Card variant="outlined">
         <Button variant="outlined" onClick={this.startGame}>
@@ -174,14 +175,15 @@ class MathGameScreen1 extends React.Component<
         <Divider />
         <Box sx={{ p: 2 }}>
           <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-            <SvgIcon
-              component={Icon}
-              sx={{ alignItems: 'center' }}
-              inheritViewBox
-            />
-            <Typography gutterBottom variant="h4">
-              {mathProblem.number1}
-            </Typography>
+            <span>
+              {prefix ? (
+                <Typography variant="h4">{prefix}</Typography>
+              ) : undefined}
+              <Typography variant="h4">
+                {mathProblem.number1}
+                {suffix ? suffix : undefined}
+              </Typography>
+            </span>
           </Stack>
         </Box>
         <Box sx={{ p: 2 }}>

@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react';
+import React, { ComponentType, ReactNode } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
@@ -7,6 +7,7 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
+import EqualIcon from '../IconComponents/EqualIcon';
 
 import {
   MathProblem,
@@ -21,7 +22,7 @@ interface MathGameScreenProps {
   minValue: number;
   maxValue: number;
   operation: MathOperation;
-  icon: ComponentType<SvgIconProps>;
+  operationNode: React.ReactNode;
 }
 
 interface GameScreen {
@@ -132,7 +133,7 @@ class MathGameScreen extends React.Component<
 
   render(): React.ReactNode {
     const { started, gameScreen, mathProblem } = this.state;
-    const { icon: Icon } = this.props;
+    const { operationNode } = this.props;
     return !started ? (
       <Card variant="outlined">
         <Button variant="outlined" onClick={this.startGame}>
@@ -142,7 +143,7 @@ class MathGameScreen extends React.Component<
     ) : (
       <Card variant="outlined">
         <Box sx={{ p: 2 }}>
-          <Typography gutterBottom variant="h3" component="div">
+          <Typography gutterBottom variant="h4" component="div">
             Player 1
           </Typography>
           <Stack
@@ -151,7 +152,7 @@ class MathGameScreen extends React.Component<
           >
             <Typography
               gutterBottom
-              variant="h3"
+              variant="h6"
               component="div"
               color="text.secondary"
             >
@@ -159,7 +160,7 @@ class MathGameScreen extends React.Component<
             </Typography>
             <Typography
               gutterBottom
-              variant="h3"
+              variant="h6"
               component="div"
               color="secondary"
             >
@@ -177,11 +178,7 @@ class MathGameScreen extends React.Component<
             <Typography gutterBottom variant="h4">
               {mathProblem.number1}
             </Typography>
-            <SvgIcon
-              component={Icon}
-              sx={{ alignItems: 'center' }}
-              inheritViewBox
-            />
+            <Typography variant="h4">{operationNode}</Typography>
             <Typography gutterBottom variant="h4">
               {mathProblem.number2}
             </Typography>
@@ -193,6 +190,7 @@ class MathGameScreen extends React.Component<
             spacing={5}
             sx={{ alignItems: 'center', justifyContent: 'space-between' }}
           >
+            <Typography variant="h3">=</Typography>
             <TextField
               required
               id="outlined-required"

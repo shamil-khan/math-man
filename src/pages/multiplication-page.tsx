@@ -1,5 +1,4 @@
 import { MathOperation } from '../models/math-model';
-import MultiplicationIcon from '@mui/icons-material/Clear';
 import MathGameScreen from '../components/MathGameScreen';
 
 export default function MultiplicationPage() {
@@ -8,7 +7,7 @@ export default function MultiplicationPage() {
       minValue={2}
       maxValue={9}
       operation={MathOperation.Multiplication}
-      icon={MultiplicationIcon}
+      operationNode={<span>×</span>}
     />
   );
 }

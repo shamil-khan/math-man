@@ -1,5 +1,4 @@
 import { MathOperation } from '../models/math-model';
-import SquareIcon from '@mui/icons-material/SuperscriptRounded';
 import MathGameScreen1 from '../components/MathGameScreen1';
 
 export default function SquareValuePage() {
@@ -8,7 +7,7 @@ export default function SquareValuePage() {
       minValue={2}
       maxValue={9}
       operation={MathOperation.SquareValue}
-      icon={SquareIcon}
+      suffix={<span style={{ verticalAlign: 'super', fontSize: '0.5em' }}>2</span>}
     />
   );
 }

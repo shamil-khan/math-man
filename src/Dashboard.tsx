@@ -3,15 +3,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
 import HomeIcon from '@mui/icons-material/Home';
-import AdditionIcon from '@mui/icons-material/AddCircle';
-import SubtractionIcon from '@mui/icons-material/DoNotDisturbOn';
-import MultiplicationIcon from '@mui/icons-material/Cancel';
-import DivisionIcon from '@mui/icons-material/PercentRounded';
 import TableIcon from '@mui/icons-material/TableRowsRounded';
-import SquareIcon from '@mui/icons-material/SuperscriptRounded';
-import CubeIcon from '@mui/icons-material/Timer3Rounded';
-import SquareRootIcon from '@mui/icons-material/LooksTwoRounded';
-import CubicRootIcon from '@mui/icons-material/Looks3Rounded';
+import SquareRootIcon from './IconComponents/SquareRootIcon';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -19,7 +12,7 @@ import { Branding, type Navigation } from '@toolpad/core/AppProvider';
 import { useDemoRouter } from '@toolpad/core/internal';
 import { ReactRouterAppProvider } from '@toolpad/core/react-router';
 import { Outlet } from 'react-router';
-import MathManIcon from './images/math-man-icon.png';
+import MathManIcon from './assets/images/math-man-icon.png';
 
 const NAVIGATION: Navigation = [
   {
@@ -34,22 +27,22 @@ const NAVIGATION: Navigation = [
   {
     segment: 'addition-page',
     title: 'Addition',
-    icon: <AdditionIcon />,
+    icon: <span>+</span>,
   },
   {
     segment: 'subtraction-page',
     title: 'Subtraction',
-    icon: <SubtractionIcon />,
+    icon: <span>−</span>,
   },
   {
     segment: 'multiplication-page',
     title: 'Multiplication',
-    icon: <MultiplicationIcon />,
+    icon: <span>×</span>,
   },
   {
     segment: 'division-page',
     title: 'Division',
-    icon: <DivisionIcon />,
+    icon: <span>÷</span>,
   },
   {
     segment: 'table-page',
@@ -59,12 +52,20 @@ const NAVIGATION: Navigation = [
   {
     segment: 'square-value-page',
     title: 'Square Value',
-    icon: <SquareIcon />,
+    icon: (
+      <span>
+        X<sup>2</sup>
+      </span>
+    ),
   },
   {
     segment: 'cubic-value-page',
     title: 'Cubic Value',
-    icon: <CubeIcon />,
+    icon: (
+      <span>
+        X<sup>3</sup>
+      </span>
+    ),
   },
   {
     segment: 'square-root-page',
@@ -74,7 +75,12 @@ const NAVIGATION: Navigation = [
   {
     segment: 'cubic-root-page',
     title: 'Cubic Root',
-    icon: <CubicRootIcon />,
+    icon: (
+      <span>
+        <sup>3</sup>
+        <SquareRootIcon />
+      </span>
+    ),
   },
   {
     kind: 'divider',

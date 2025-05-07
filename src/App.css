@@ -15,14 +15,14 @@
 }
 
 .app-background {
-  background-image: url('./images/math-bg-2.png');
+  background-image: url('./assets/images/math-bg-2.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
 }
 
 .math-man {
-  background-image: url('./images/math-man-icon.png');
+  background-image: url('./assets/images/math-man-icon.png');
   margin-left: “auto”;
   margin-right: “auto”;
 }
