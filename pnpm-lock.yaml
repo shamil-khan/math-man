@@ -41,9 +41,6 @@ importers:
       inversify:
         specifier: ^7.5.1
         version: 7.5.1(reflect-metadata@0.2.2)
-      inversify-react:
-        specifier: ^1.2.0
-        version: 1.2.0(inversify@7.5.1(reflect-metadata@0.2.2))(react@19.1.0)
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -1730,12 +1727,6 @@ packages:
 
   invariant@2.2.4:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
-
-  inversify-react@1.2.0:
-    resolution: {integrity: sha512-4p0WRWaMpQAU7PBzz+6/OMFW9JPEtN6MzamQkEZ7CJUZEziBnG5afBrtP+QyS1gj/Su3igORkCeru0vUZkUGqw==}
-    peerDependencies:
-      inversify: ^5.0.5 || ^6.0.1
-      react: ^16.3.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   inversify@7.5.1:
     resolution: {integrity: sha512-oWWFDU2BXiuqZynGcLDDD4tqiWAeaEUCALlCj0vk/QwHGgZY/tzDFPuTmWMY3jwRmDIHxVDkcj9SL3MFTlCEDw==}
@@ -4622,11 +4613,6 @@ snapshots:
   invariant@2.2.4:
     dependencies:
       loose-envify: 1.4.0
-
-  inversify-react@1.2.0(inversify@7.5.1(reflect-metadata@0.2.2))(react@19.1.0):
-    dependencies:
-      inversify: 7.5.1(reflect-metadata@0.2.2)
-      react: 19.1.0
 
   inversify@7.5.1(reflect-metadata@0.2.2):
     dependencies:
