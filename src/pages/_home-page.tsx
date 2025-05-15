@@ -12,7 +12,6 @@ export default class HomePage extends React.Component {
   constructor(props: object) {
     super(props);
     this.playerService = container.get<IPlayerService>(TYPES.IPlayerService);
-    logger.debug('home-page', this.playerService);
   }
 
   createPlayer = async () => {
@@ -20,11 +19,33 @@ export default class HomePage extends React.Component {
       name: 'Shamikh',
     };
     await this.playerService.add(player);
+    logger.debug('added player', player);
   };
 
   getAllPlayers = async () => {
     const players = await this.playerService.all();
     logger.debug('Players', players);
+  };
+
+  updatePlayer = async () => {
+    const player: Player = {
+      id: 2,
+      name: 'Jamail',
+    };
+    await this.playerService.update(player);
+    logger.debug('updated player', player);
+  };
+
+  deletePlayer = async () => {
+    const playerId = 1;
+    await this.playerService.delete(playerId);
+    logger.debug('deleted player', playerId);
+  };
+
+  singlePlayer = async () => {
+    const playerId = 2;
+    const player = await this.playerService.single(playerId);
+    logger.debug('single player', player);
   };
 
   render() {
@@ -36,6 +57,15 @@ export default class HomePage extends React.Component {
         </Button>
         <Button variant="outlined" onClick={this.createPlayer}>
           Create
+        </Button>
+        <Button variant="outlined" onClick={this.updatePlayer}>
+          Update
+        </Button>
+        <Button variant="outlined" onClick={this.deletePlayer}>
+          Delete
+        </Button>
+        <Button variant="outlined" onClick={this.singlePlayer}>
+          Single
         </Button>
       </div>
     );
