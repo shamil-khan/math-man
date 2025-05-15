@@ -8,6 +8,7 @@ import SquareRootIcon from './IconComponents/SquareRootIcon';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import SettingsIcon from '@mui/icons-material/Settings';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import { Branding, type Navigation } from '@toolpad/core/AppProvider';
 import { useDemoRouter } from '@toolpad/core/internal';
 import { ReactRouterAppProvider } from '@toolpad/core/react-router';
@@ -93,6 +94,18 @@ const NAVIGATION: Navigation = [
     segment: 'settings',
     title: 'Settings',
     icon: <SettingsIcon />,
+    children: [
+      {
+        segment: 'local-players',
+        title: 'Local Players',
+        icon: <PersonAddAlt1Icon />,
+      },
+      {
+        segment: 'game-settings',
+        title: 'Game Settings',
+        icon: <PersonAddAlt1Icon />,
+      },
+    ],
   },
   {
     segment: 'reports',
